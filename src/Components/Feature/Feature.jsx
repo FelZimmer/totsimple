@@ -1,7 +1,7 @@
 
 import "./FeatureSection.css";
 import React from "react";
-import  Totemm  from "./totemm.png";
+import  Totemm  from "./Totemm.png";
 import { WiTime1 } from 'react-icons/wi';
 import { FaMoneyBillTrendUp } from 'react-icons/fa6';
 import { MdPeopleAlt } from 'react-icons/md';
