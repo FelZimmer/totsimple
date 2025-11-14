@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import "./Informations.css"; 
+import "./informations.css"; 
 import { FaWater, FaShower, FaSoap, FaTint } from "react-icons/fa";
 import { RiFileList3Line } from 'react-icons/ri';
 import { LuComputer } from 'react-icons/lu';
