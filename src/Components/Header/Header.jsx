@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import logo from '/public/images/img/Vector.png';
 
 
 const Header = () => {
@@ -27,7 +28,7 @@ const Header = () => {
     <>
       <header className="animate-on-load">
         <div className="logo">
-          <img src="/src/Components/Header/Vector.png" alt="" className="imgheader" />
+          <img src={logo} alt="" className="imgheader" />
           <a href="/"><i className="fas fa-brain"></i>Tot<span>Simple</span></a>
         </div>
 
