@@ -27,7 +27,7 @@ const Header = () => {
     <>
       <header className="animate-on-load">
         <div className="logo">
-          <img src="/public/images/img/Vector.png" alt="" className="imgheader" />
+          <img src="Vector.png" alt="" className="imgheader" />
           <a href="/"><i className="fas fa-brain"></i>Tot<span>Simple</span></a>
         </div>
 
