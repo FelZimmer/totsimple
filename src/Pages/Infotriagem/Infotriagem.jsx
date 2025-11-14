@@ -1,5 +1,5 @@
 import React from 'react';
-import './Infotriagem.css';
+import './infotriagem.css';
 import Header from '../../Components/Header/Header';
 
 const Infotriagem = () => {
