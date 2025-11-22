@@ -48,9 +48,12 @@ const Header = () => {
                 </div>
               )}
             </div>
-            
-            <a href="/About">Sobre nós</a>
-            <a href="/Contato">Contato</a>
+            <Link to="/About">
+            <a >Sobre nós</a>
+            </Link>
+            <Link to="/Contact">
+            <a>Contato</a>
+            </Link>
           </nav>
         </div>
 
