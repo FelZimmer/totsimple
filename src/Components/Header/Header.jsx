@@ -49,10 +49,10 @@ const Header = () => {
               )}
             </div>
             <Link to="/About">
-            <a >Sobre nós</a>
+            Sobre nós
             </Link>
-            <Link to="/Contact">
-            <a>Contato</a>
+            <Link to="/Contato">
+         Contato
             </Link>
           </nav>
         </div>
