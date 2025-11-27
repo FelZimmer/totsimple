@@ -1,14 +1,18 @@
 @import "tailwindcss";
+
 .hero {
   display: flex;
   justify-content: center;
   padding: 6rem 2rem;
- background-color: #84BFFF;
+  background-color: #84BFFF;
   background-blend-mode: darken;
   backdrop-filter: blur(8px);
-  padding-top: 90px
- 
+  padding-top: 90px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
+
 .hero-section-container {
   background-color: rgba(255, 255, 255, 0.356); 
   height: 90vh;            
@@ -19,21 +23,20 @@
   display: flex;
   align-items: center;
   justify-content: stretch;
-  
-  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.25); 
+  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.25);
+  min-height: 600px;
+  max-width: 1400px;
 }
 
 .hero-section-container > div {
   flex: 1;
   display: flex;
- 
   align-items: center;
   justify-content: center; 
- 
+  width: 100%;
 }
 
-.hero-text {
-       
+.hero-text {       
   font-size: 2.4rem;      
   margin: 0;               
   opacity: 0;
@@ -41,7 +44,8 @@
   transition: all 1s ease;
   text-align: center;       
   width: 100%;
-  padding: 2.5rem 0;           
+  padding: 2.5rem 1rem;
+  box-sizing: border-box;
 }
 
 .hero-text.fade-in-left {
@@ -50,11 +54,13 @@
 }
 
 .hero-text h1 {
-
   font-size: 4.5rem;       
   font-weight: bold;
   color: #111;
-  line-height: 1.2; 
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .hero-text h1 span {
@@ -64,13 +70,14 @@
 
 .hero-text h1 .block {
   display: block; 
-
 }
-
 
 .subtitle {
   font-size: 2.2rem;           
   color: #2d3559;
+  margin: 1rem 0 2rem 0;
+  line-height: 1.4;
+  word-wrap: break-word;
 }
 
 .hero-buttons {
@@ -78,8 +85,9 @@
   display: flex;
   gap: 3rem;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .btn {
@@ -94,15 +102,23 @@
   color: #ffffff;
   transition: all 0.3s;
   box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+  border: none;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.20);
+}
 
+.btn:active {
+  transform: translateY(0);
+}
 
-
-
-
-
-/* Imagens */
+/* Images */
 .hero-images {
   display: flex;
   justify-content: center;
@@ -113,6 +129,8 @@
   transition: all 1s ease;
   height: 420px;
   width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .hero-images.fade-in-right {
@@ -120,39 +138,33 @@
   transform: translateX(0);
 }
 
-.card {
-  width: 240px;                
-  border-radius: 12px;
-  color: white;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  margin-bottom: 120px;
+.hero-images img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
 }
 
-
 .custom-shape-divider-bottom-1759704000 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
 }
 
 .custom-shape-divider-bottom-1759704000 svg {
-    position: relative;
-    display: block;
-    width: calc(105% + 1.3px);
-    height: 96px;
+  position: relative;
+  display: block;
+  width: calc(105% + 1.3px);
+  height: 96px;
 }
 
 .custom-shape-divider-bottom-1759704000 .shape-fill {
-    fill: #FFFFFF;
+  fill: #FFFFFF;
 }
 
 @keyframes fadeInUp {
@@ -171,5 +183,803 @@
   opacity: 0;
 }
 
+/* ===== SAMSUNG GALAXY TAB SPECIFIC OPTIMIZATIONS ===== */
+
+/* Samsung Galaxy Tab S9 Ultra (14.6") - 1848x2960 */
+@media only screen and (min-width: 1848px) and (max-width: 2960px) {
+  .hero {
+    padding: 8rem 4rem;
+    padding-top: 120px;
+  }
+  
+  .hero-section-container {
+    width: 90%;
+    border-radius: 45px;
+    height: 85vh;
+    min-height: 800px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: row;
+    gap: 5rem;
+  }
+  
+  .hero-text {
+    flex: 1;
+    text-align: left;
+    padding: 3rem 2rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 5.5rem;
+  }
+  
+  .subtitle {
+    font-size: 2.8rem;
+  }
+  
+  .btn {
+    width: 280px;
+    height: 65px;
+    font-size: 22px;
+  }
+  
+  .hero-images {
+    flex: 1;
+    height: 550px;
+  }
+}
+
+/* Samsung Galaxy Tab S9+ (12.4") - 1752x2800 */
+@media only screen and (min-width: 1752px) and (max-width: 1847px) {
+  .hero {
+    padding: 7rem 3.5rem;
+    padding-top: 110px;
+  }
+  
+  .hero-section-container {
+    width: 92%;
+    border-radius: 42px;
+    height: 87vh;
+    min-height: 750px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: row;
+    gap: 4rem;
+  }
+  
+  .hero-text {
+    flex: 1;
+    text-align: left;
+    padding: 2.5rem 2rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 5rem;
+  }
+  
+  .subtitle {
+    font-size: 2.5rem;
+  }
+  
+  .btn {
+    width: 270px;
+    height: 60px;
+    font-size: 21px;
+  }
+  
+  .hero-images {
+    flex: 1;
+    height: 500px;
+  }
+}
+
+/* Samsung Galaxy Tab S9 (11") - 1600x2560 */
+@media only screen and (min-width: 1600px) and (max-width: 1751px) {
+  .hero {
+    padding: 6rem 3rem;
+    padding-top: 100px;
+  }
+  
+  .hero-section-container {
+    width: 94%;
+    border-radius: 40px;
+    height: 88vh;
+    min-height: 700px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: row;
+    gap: 3.5rem;
+  }
+  
+  .hero-text {
+    flex: 1;
+    text-align: left;
+    padding: 2rem 1.5rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 4.5rem;
+  }
+  
+  .subtitle {
+    font-size: 2.3rem;
+  }
+  
+  .btn {
+    width: 260px;
+    height: 58px;
+    font-size: 20px;
+  }
+  
+  .hero-images {
+    flex: 1;
+    height: 450px;
+  }
+}
+
+/* Samsung Galaxy Tab S8 Ultra (14.6") - 1848x2960 */
+@media only screen and (device-width: 1848px) and (device-height: 2960px) {
+  .hero-section-container {
+    border-radius: 45px;
+  }
+  
+  .hero-text h1 {
+    font-size: 5.2rem;
+    line-height: 1.1;
+  }
+  
+  .subtitle {
+    font-size: 2.6rem;
+  }
+}
+
+/* Samsung Galaxy Tab S8+ (12.4") - 1752x2800 */
+@media only screen and (device-width: 1752px) and (device-height: 2800px) {
+  .hero-section-container {
+    border-radius: 42px;
+  }
+  
+  .hero-text h1 {
+    font-size: 4.8rem;
+  }
+  
+  .subtitle {
+    font-size: 2.4rem;
+  }
+}
+
+/* Samsung Galaxy Tab S8 (11") - 1600x2560 */
+@media only screen and (device-width: 1600px) and (device-height: 2560px) {
+  .hero-section-container {
+    border-radius: 38px;
+  }
+  
+  .hero-text h1 {
+    font-size: 4.3rem;
+  }
+}
+
+/* Samsung Galaxy Tab S7+ (12.4") - 1752x2800 */
+@media only screen and (min-width: 1368px) and (max-width: 1752px) {
+  .hero {
+    padding: 5rem 2.5rem;
+    padding-top: 90px;
+  }
+  
+  .hero-section-container {
+    width: 95%;
+    border-radius: 38px;
+    height: 85vh;
+    min-height: 650px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: row;
+    gap: 3rem;
+  }
+  
+  .hero-text {
+    flex: 1;
+    text-align: left;
+    padding: 2rem 1.5rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 4rem;
+  }
+  
+  .subtitle {
+    font-size: 2.1rem;
+  }
+  
+  .btn {
+    width: 250px;
+    height: 55px;
+    font-size: 19px;
+  }
+  
+  .hero-images {
+    flex: 1;
+    height: 400px;
+  }
+}
+
+/* Samsung Galaxy Tab S7 (11") - 1600x2560 */
+@media only screen and (min-width: 1200px) and (max-width: 1367px) {
+  .hero {
+    padding: 4.5rem 2rem;
+    padding-top: 85px;
+  }
+  
+  .hero-section-container {
+    width: 96%;
+    border-radius: 35px;
+    height: 86vh;
+    min-height: 600px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+  
+  .hero-text {
+    flex: 1;
+    text-align: left;
+    padding: 1.8rem 1.2rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 3.7rem;
+  }
+  
+  .subtitle {
+    font-size: 1.9rem;
+  }
+  
+  .btn {
+    width: 240px;
+    height: 52px;
+    font-size: 18px;
+  }
+  
+  .hero-images {
+    flex: 1;
+    height: 370px;
+  }
+}
+
+/* Samsung Galaxy Tab A8 (10.5") - 1200x1920 */
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+  .hero {
+    padding: 4rem 1.8rem;
+    padding-top: 80px;
+  }
+  
+  .hero-section-container {
+    width: 97%;
+    border-radius: 32px;
+    height: 82vh;
+    min-height: 550px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .hero-text {
+    padding: 1.5rem 1rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 3.4rem;
+  }
+  
+  .subtitle {
+    font-size: 1.7rem;
+  }
+  
+  .btn {
+    width: 230px;
+    height: 50px;
+    font-size: 17px;
+  }
+  
+  .hero-images {
+    height: 340px;
+  }
+}
+
+/* Samsung Galaxy Tab A7 (10.4") - 1200x2000 */
+@media only screen and (min-width: 800px) and (max-width: 1023px) {
+  .hero {
+    padding: 3.5rem 1.5rem;
+    padding-top: 75px;
+  }
+  
+  .hero-section-container {
+    width: 98%;
+    border-radius: 30px;
+    height: 80vh;
+    min-height: 500px;
+    padding: 2rem 1rem;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+  
+  .hero-text {
+    padding: 1.2rem 0.8rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 3.1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .hero-buttons {
+    margin-top: 2rem;
+    gap: 1.8rem;
+  }
+  
+  .btn {
+    width: 220px;
+    height: 48px;
+    font-size: 16px;
+  }
+  
+  .hero-images {
+    height: 310px;
+  }
+}
+
+/* Samsung Galaxy Tab Active series (8") - 800x1280 */
+@media only screen and (min-width: 600px) and (max-width: 799px) {
+  .hero {
+    padding: 3rem 1.2rem;
+    padding-top: 70px;
+  }
+  
+  .hero-section-container {
+    width: 99%;
+    border-radius: 25px;
+    height: 78vh;
+    min-height: 450px;
+    padding: 1.8rem 0.8rem;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .hero-text {
+    padding: 1rem 0.6rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.8rem;
+    line-height: 1.1;
+  }
+  
+  .subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .hero-buttons {
+    margin-top: 1.8rem;
+    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 200px;
+    height: 45px;
+    font-size: 15px;
+  }
+  
+  .hero-images {
+    height: 280px;
+  }
+  
+  .custom-shape-divider-bottom-1759704000 svg {
+    height: 65px;
+  }
+}
+
+/* Samsung Galaxy Tab Lite series (7") - 600x1024 */
+@media only screen and (min-width: 480px) and (max-width: 599px) {
+  .hero {
+    padding: 2.5rem 1rem;
+    padding-top: 65px;
+  }
+  
+  .hero-section-container {
+    width: 100%;
+    border-radius: 22px;
+    height: 75vh;
+    min-height: 400px;
+    padding: 1.5rem 0.6rem;
+    border-width: 2px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .hero-text {
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.4rem;
+    line-height: 1.05;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-buttons {
+    margin-top: 1.5rem;
+    gap: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 180px;
+    height: 42px;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  
+  .hero-images {
+    height: 250px;
+  }
+  
+  .custom-shape-divider-bottom-1759704000 svg {
+    height: 55px;
+  }
+}
+
+/* ===== SAMSUNG TAB LANDSCAPE ORIENTATIONS ===== */
+
+/* Samsung Galaxy Tab S9 Ultra Landscape */
+@media only screen and (min-width: 2960px) and (orientation: landscape) {
+  .hero {
+    padding: 4rem 6rem;
+    padding-top: 80px;
+  }
+  
+  .hero-section-container {
+    height: 85vh;
+    min-height: 600px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: row;
+    gap: 6rem;
+  }
+  
+  .hero-text {
+    flex: 1.2;
+    text-align: left;
+  }
+  
+  .hero-images {
+    flex: 0.8;
+    height: 400px;
+  }
+  
+  .hero-text h1 {
+    font-size: 4.5rem;
+  }
+  
+  .subtitle {
+    font-size: 2.2rem;
+  }
+}
+
+/* Samsung Galaxy Tab S8/S9 Series Landscape (1600px-1848px) */
+@media (min-width: 1600px) and (max-width: 1848px) and (orientation: landscape) {
+  .hero {
+    padding: 3rem 4rem;
+    padding-top: 70px;
+  }
+  
+  .hero-section-container {
+    height: 82vh;
+    min-height: 500px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: row;
+    gap: 4rem;
+  }
+  
+  .hero-text {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .hero-images {
+    flex: 1;
+    height: 350px;
+  }
+  
+  .hero-text h1 {
+    font-size: 3.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1.9rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+/* Samsung Galaxy Tab A Series Landscape (800px-1200px) */
+@media (min-width: 800px) and (max-width: 1200px) and (orientation: landscape) {
+  .hero {
+    padding: 2rem 2.5rem;
+    padding-top: 60px;
+  }
+  
+  .hero-section-container {
+    height: 80vh;
+    min-height: 400px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+  
+  .hero-text {
+    flex: 1;
+    text-align: left;
+    padding: 1rem;
+  }
+  
+  .hero-images {
+    flex: 1;
+    height: 280px;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.8rem;
+    line-height: 1.1;
+  }
+  
+  .subtitle {
+    font-size: 1.4rem;
+  }
+  
+  .hero-buttons {
+    margin-top: 1.5rem;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  
+  .btn {
+    width: 160px;
+    height: 40px;
+    font-size: 13px;
+  }
+}
+
+/* Samsung Galaxy Tab Compact Series Landscape (600px-800px) */
+@media (min-width: 600px) and (max-width: 800px) and (orientation: landscape) {
+  .hero {
+    padding: 1.5rem 2rem;
+    padding-top: 50px;
+  }
+  
+  .hero-section-container {
+    height: 85vh;
+    min-height: 350px;
+    padding: 1rem;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  
+  .hero-text {
+    flex: 1;
+    text-align: left;
+    padding: 0.8rem;
+  }
+  
+  .hero-images {
+    flex: 1;
+    height: 220px;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.2rem;
+    line-height: 1;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .hero-buttons {
+    margin-top: 1rem;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .btn {
+    width: 140px;
+    height: 35px;
+    font-size: 12px;
+  }
+  
+  .custom-shape-divider-bottom-1759704000 svg {
+    height: 35px;
+  }
+}
+
+/* ===== GENERAL RESPONSIVE BREAKPOINTS (Non-Samsung devices) ===== */
+
+/* Extra Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+  .hero {
+    padding: 8rem 3rem;
+    padding-top: 100px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: row;
+    gap: 4rem;
+  }
+  
+  .hero-text {
+    flex: 1;
+    text-align: left;
+    padding-right: 3rem;
+  }
+  
+  .hero-images {
+    flex: 1;
+    height: 500px;
+  }
+  
+  .hero-text h1 {
+    font-size: 5rem;
+  }
+  
+  .subtitle {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mobile phones (320px to 479px) */
+@media (min-width: 320px) and (max-width: 479px) {
+  .hero {
+    padding: 2rem 0.5rem;
+    padding-top: 55px;
+  }
+  
+  .hero-section-container {
+    width: 100%;
+    border-radius: 15px;
+    height: auto;
+    min-height: 60vh;
+    padding: 1.2rem 0.5rem;
+    border-width: 2px;
+  }
+  
+  .hero-section-container > div {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .hero-text {
+    padding: 0.8rem 0.3rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+    line-height: 1.05;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-buttons {
+    margin-top: 1.5rem;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 170px;
+    height: 40px;
+    font-size: 13px;
+  }
+  
+  .hero-images {
+    height: 200px;
+  }
+  
+  .custom-shape-divider-bottom-1759704000 svg {
+    height: 45px;
+  }
+}
+
+/* ===== ACCESSIBILITY & PERFORMANCE ===== */
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-section-container {
+    backdrop-filter: blur(15px);
+  }
+  
+  .btn {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero-text,
+  .hero-images,
+  .hero-section-container.animate-load {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .btn {
+    transition: none !important;
+  }
+  
+  .btn:hover {
+    transform: none !important;
+  }
+}
 
 
+
+/* Touch device optimizations */
+@media (pointer: coarse) {
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .hero-buttons {
+    gap: 1.5rem;
+  }
+}
+
+/* Hover-capable devices */
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.20);
+  }
+}

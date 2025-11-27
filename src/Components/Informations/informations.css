@@ -1,35 +1,36 @@
-
 .information-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 2rem;
+  padding: 2rem 1rem;
   background: #84BFFF;
   min-height: 50vh;
   margin-top: 100px;
 }
 
 .information-card {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)), url('/public/images/img/insastisfacao.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)), url('/images/CustomerSatisfaction.jpg');
   background-size: cover;
   background-position: center;
   background-blend-mode: darken;
   backdrop-filter: blur(10px);
   color: #fff;
-  padding: 4rem;
-  border-radius: 4rem;
+  padding: 2rem;
+  border-radius: 2rem;
   text-align: center;
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.8s ease-out;
-  width: 1400px;
-  height: 600px;
-  margin-bottom: 80px;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 400px;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .information-card.fade-in {
@@ -39,25 +40,31 @@
 
 .information-card h2 {
   font-weight: bold;
-  font-size: 2.7rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .information-card p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.5;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
+  max-width: 100%;
+  text-align: center;
 }
 
 .circles-container {
   display: flex;
-  justify-content: space-around;
-  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .circle {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background: #d9d9d9;
   border-radius: 50%;
   display: flex;
@@ -67,7 +74,9 @@
   transform: translateY(30px);
   transition: all 0.6s ease-out;
   cursor: pointer;
+  flex-shrink: 0;
 }
+
 .circle span {
   font-size: 0.7rem;
   margin-bottom: 5px;
@@ -75,8 +84,8 @@
 }
 
 .circle span svg {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   color: #000;
 }
 
@@ -86,12 +95,10 @@
 }
 
 .circle:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   background: #00bfff;
   transition: all 0.3s ease;
 }
-
-
 
 .custom-shape-divider-top-1759712501 {
     position: absolute;
@@ -112,4 +119,309 @@
 
 .custom-shape-divider-top-1759712501 .shape-fill {
     fill: #FFFFFF;
+}
+
+/* Tablet Landscape (1024px - 1366px) */
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+  .information-container {
+    padding: 3rem 2rem;
+    margin-top: 80px;
+  }
+  
+  .information-card {
+    padding: 3rem;
+    border-radius: 3rem;
+    min-height: 500px;
+    margin-bottom: 60px;
+  }
+  
+  .information-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .information-card p {
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+  }
+  
+  .circles-container {
+    gap: 3rem;
+  }
+  
+  .circle {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .circle span svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Tablet Portrait (768px - 1023px) - iPad, Samsung Galaxy Tab */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .information-container {
+    padding: 2rem 1.5rem;
+    margin-top: 60px;
+  }
+  
+  .information-card {
+    padding: 2.5rem;
+    border-radius: 2.5rem;
+    min-height: 450px;
+    margin-bottom: 50px;
+  }
+  
+  .information-card h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.8rem;
+  }
+  
+  .information-card p {
+    font-size: 1rem;
+    margin-bottom: 3.5rem;
+    padding: 0 1rem;
+  }
+  
+  .circles-container {
+    gap: 2.5rem;
+  }
+  
+  .circle {
+    width: 85px;
+    height: 85px;
+  }
+  
+  .circle span svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .circle:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Mobile Landscape (481px - 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .information-container {
+    padding: 1.5rem 1rem;
+    margin-top: 40px;
+  }
+  
+  .information-card {
+    padding: 2rem;
+    border-radius: 2rem;
+    min-height: 400px;
+    margin-bottom: 40px;
+  }
+  
+  .information-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .information-card p {
+    font-size: 0.95rem;
+    margin-bottom: 3rem;
+    padding: 0 0.5rem;
+  }
+  
+  .circles-container {
+    gap: 1.5rem;
+    justify-content: space-around;
+  }
+  
+  .circle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .circle span svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Mobile Portrait (320px - 480px) - iPhone, Samsung Galaxy, Android phones */
+@media screen and (max-width: 480px) {
+  .information-container {
+    padding: 1rem 0.5rem;
+    margin-top: 30px;
+    min-height: auto;
+  }
+  
+  .information-card {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    min-height: 350px;
+    margin-bottom: 30px;
+    width: 95%;
+  }
+  
+  .information-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .information-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+  
+  .circles-container {
+    gap: 1rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .circle span svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .circle:hover {
+    transform: scale(1.02);
+  }
+  
+  .custom-shape-divider-top-1759712501 svg {
+    height: 150px;
+  }
+}
+
+/* Extra Small Mobile (max-width: 360px) - Small Android phones */
+@media screen and (max-width: 360px) {
+  .information-container {
+    padding: 0.8rem 0.3rem;
+  }
+  
+  .information-card {
+    padding: 1.2rem;
+    border-radius: 1.2rem;
+    min-height: 320px;
+    width: 98%;
+  }
+  
+  .information-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .information-card p {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .circles-container {
+    gap: 0.8rem;
+  }
+  
+  .circle {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .circle span svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Large Screens (1367px+) */
+@media screen and (min-width: 1367px) {
+  .information-container {
+    padding: 4rem 2rem;
+    margin-top: 100px;
+  }
+  
+  .information-card {
+    padding: 4rem;
+    border-radius: 4rem;
+    height: 600px;
+    margin-bottom: 80px;
+  }
+  
+  .information-card h2 {
+    font-size: 2.7rem;
+    margin-bottom: 2rem;
+  }
+  
+  .information-card p {
+    font-size: 1.1rem;
+    margin-bottom: 5rem;
+  }
+  
+  .circles-container {
+    gap: 4rem;
+  }
+  
+  .circle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .circle span svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .circle:hover {
+    transform: scale(1.2);
+  }
+}
+
+/* Orientation specific adjustments */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  .information-container {
+    margin-top: 20px;
+    padding: 1rem;
+  }
+  
+  .information-card {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+  
+  .information-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .information-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .circles-container {
+    gap: 1rem;
+  }
+}
+
+/* High DPI displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+  .information-card {
+    backdrop-filter: blur(15px);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .circle:hover {
+    transform: none;
+  }
+  
+  .circle:active {
+    transform: scale(0.95);
+    background: #00bfff;
+  }
 }
