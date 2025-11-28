@@ -17,7 +17,7 @@ const CarrinhoConfirmacao = () => {
   const medicamentosPadraoReceita = [
     {
       id: 101,
-      nome: "Ecobag TotSimple",
+      nome: "Ecobag ToTSimple",
       descricao:
         "Sacola reutilizável que serve como alternativa às sacolas plásticas descartáveis.",
       preco: 45.9,
@@ -26,7 +26,7 @@ const CarrinhoConfirmacao = () => {
     },
     {
       id: 102,
-      nome: "Álcool Gel 70% TotSimple",
+      nome: "Álcool Gel 70% ToTSimple",
       descricao:
         "Serve para higienizar as mãos e desinfetar superfícies.",
       preco: 89.5,
@@ -47,7 +47,7 @@ const CarrinhoConfirmacao = () => {
       setMedicamentosBalcao(medicamentos);
     }
 
-    // Carregar receita salva
+   
     const receitaSalva = localStorage.getItem("medicamentosReceita");
     if (receitaSalva) {
       const receitaParsed = JSON.parse(receitaSalva);

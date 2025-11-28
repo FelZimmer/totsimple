@@ -10,6 +10,7 @@ import allegraImg from "/public/images/Remedios/Allegra.webp";
 import loratadinaImg from "/public/images/Remedios/Loratadina.webp";
 import benegripImg from "/public/images/Remedios/356239-benegrip-20-comprimidos.jpg.webp";
 import epoclerImg from "/public/images/Remedios/Epocler.jpeg";
+import TOtimg from "/public/images/img/Vector.png";
 
 const MedicamentosBalcao = () => {
   const navigate = useNavigate();
@@ -82,11 +83,11 @@ const MedicamentosBalcao = () => {
     },
     {
       id: 7,
-      nome: 'kkkkkkkk',
-      descricao: 'kkkkkkkkkkkkkkkkkkkkk',
-      sintomas: ['dor', 'tororo', 'vuc'],
-      preco: 18.90,
-      imagem: 'https://placehold.co/150x150',
+      nome: 'TOTSimple Digest',
+      descricao: '30mg - 20 comprimidos',
+      sintomas: ['Dor', 'Azia', 'Má digestão'],
+      preco: 25.90,
+      imagem: TOtimg,
       categoria: 'Digestão e Azia'
     }
   ];

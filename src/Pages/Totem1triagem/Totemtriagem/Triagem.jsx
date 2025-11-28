@@ -17,14 +17,14 @@ const TotemTriagem = () => {
 
   return (
     <div className="totem-container">
-      {/* Elementos geométricos decorativos */}
+      
       <FundoT />
 
       
-      {/* Header com logo */}
+     
       <Header />
 
-      {/* Conteúdo principal */}
+     
       <main className="main-triagem">
         <div className="welcome-section">
           <h1 className="welcome-title">Seja Bem Vindo!</h1>
@@ -42,7 +42,7 @@ const TotemTriagem = () => {
         </div>
       </main>
 
-      {/* Botão de acessibilidade */}
+     
       <button 
         className="accessibility-button"
         onClick={handleAcessibilidade}
