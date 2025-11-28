@@ -3,13 +3,24 @@
   font-family: Arial, sans-serif;
   color: #333;
   padding-top: 10rem;
+  min-height: 100vh;
+  background-color: #f8f9fa;
 }
 
+.fundo-totem-wrapper{
+  position: fixed;
+  width: 100%;
+  filter: blur(16px);
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+}
 
 .pagamento-main {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 2rem;
 }
 
 .medicamentos-section {
@@ -17,15 +28,51 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.medicamentos-section h2 {
+  color: #0563A9;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #0563A9;
+}
+
+.medicamentos-receita-section,
+.medicamentos-balcao-section {
+  margin-bottom: 2rem;
+}
+
+.medicamentos-receita-section h3,
+.medicamentos-balcao-section h3 {
+  color: #0563A9;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0f0f0;
 }
 
 .medicamento-card {
   display: flex;
   background: #fff;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 1rem;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.medicamento-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
 }
 
 .medicamento-card img {
@@ -33,24 +80,42 @@
   height: 80px;
   object-fit: contain;
   margin-right: 15px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+}
+
+.detalhes {
+  flex: 1;
 }
 
 .detalhes h3 {
-  margin: 0;
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .detalhes p {
-  margin: 5px 0;
+  margin: 0 0 0.5rem 0;
   font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.detalhes span {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0563A9;
 }
 
 .medicamento-card.receita {
-  border-left: 4px solid #55a0f0;
+  border-left: 4px solid #0563A9;
+  background: linear-gradient(135deg, #fff 0%, #f8fff8 100%);
 }
 
 .medicamento-card.balcao {
   border-left: 4px solid #0563A9;
-  position: relative;
+  background: linear-gradient(135deg, #fff 0%, #f8fbff 100%);
 }
 
 .btn-remove {
@@ -64,6 +129,49 @@
   width: 25px;
   height: 25px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.btn-remove:hover {
+  background: linear-gradient(135deg, #e74d4d 0%, #860909 100%);
+  transform: scale(1.1);
+}
+
+.carrinho-vazio {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+}
+
+.carrinho-vazio h3 {
+  color: #0563A9;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.btn-resetar,
+.btn-resetar-receita-sidebar {
+  padding: 1rem;
+  background: linear-gradient(135deg, #0563A9, #55a0f0);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.btn-resetar:hover,
+.btn-resetar-receita-sidebar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
 }
 
 .resumo-pedido {
@@ -71,43 +179,537 @@
   background: #fff;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
   gap: 15px;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.resumo-pedido h3 {
+  margin: 0 0 1.5rem 0;
+  color: #333;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.itens-resumo {
+  margin-bottom: 1.5rem;
 }
 
 .itens-resumo div {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.itens-resumo div:last-child {
+  border-bottom: none;
 }
 
 .total {
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  color: #0563A9;
+  border-top: 2px solid #0563A9;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.botoes-pagamento {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .botoes-pagamento button {
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 1rem;
   width: 100%;
   font-size: 1rem;
+  font-weight: 600;
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.botoes-pagamento button:hover {
+  transform: translateY(-2px);
+}
+
+.botoes-pagamento button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .botoes-pagamento button.cancelar {
-    background: linear-gradient(135deg, #860909 0%, #e74d4d 100% );
+  background: linear-gradient(135deg, #860909 0%, #e74d4d 100%);
   color: #fff;
 }
 
+.botoes-pagamento button.cancelar:hover {
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
 .botoes-pagamento button.CartaoCOR {
- background: linear-gradient(135deg, #0563A9, #55a0f0);
+  background: linear-gradient(135deg, #0563A9, #55a0f0);
   color: #fff;
 }
+
+.botoes-pagamento button.CartaoCOR:hover {
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
 .botoes-pagamento button.PixCor {
-  background: linear-gradient(135deg, #55a0f0,#0563A9);
+  background: linear-gradient(135deg, #55a0f0, #0563A9);
   color: #fff;
+}
+
+.botoes-pagamento button.PixCor:hover {
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
+/* ========== RESPONSIVIDADE ========== */
+
+/* Tablets grandes (iPad Pro, Samsung Galaxy Tab S) */
+@media (max-width: 1366px) and (min-width: 1025px) {
+  .pagamento-wrapper {
+    padding-top: 9rem;
+  }
+  
+  .pagamento-main {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .medicamentos-section {
+    padding: 1.5rem;
+  }
+  
+  .resumo-pedido {
+    padding: 1.5rem;
+  }
+}
+
+/* Tablets médios (iPad Air, Samsung Galaxy Tab A) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .pagamento-wrapper {
+    padding-top: 8rem;
+  }
+  
+  .pagamento-main {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .resumo-pedido {
+    order: -1;
+    position: static;
+  }
+  
+  .medicamentos-section {
+    padding: 1.5rem;
+  }
+  
+  .medicamento-card {
+    padding: 1rem;
+  }
+  
+  .medicamento-card img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* Tablets pequenos (iPad Mini, Samsung Galaxy Tab) */
+@media (max-width: 768px) and (min-width: 481px) {
+  .pagamento-wrapper {
+    padding-top: 7rem;
+  }
+  
+  .pagamento-main {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .resumo-pedido {
+    order: -1;
+    position: static;
+  }
+  
+  .medicamentos-section {
+    padding: 1rem;
+  }
+  
+  .resumo-pedido {
+    padding: 1rem;
+  }
+  
+  .medicamento-card {
+    padding: 0.8rem;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .medicamento-card img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+  }
+  
+  .detalhes h3 {
+    font-size: 1.1rem;
+  }
+  
+  .detalhes p {
+    font-size: 0.85rem;
+  }
+  
+  .detalhes span {
+    font-size: 1.1rem;
+  }
+  
+  .btn-remove {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+  
+  .medicamentos-section h2 {
+    font-size: 1.3rem;
+  }
+  
+  .medicamentos-receita-section h3,
+  .medicamentos-balcao-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  .resumo-pedido h3 {
+    font-size: 1.2rem;
+  }
+  
+  .botoes-pagamento button {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Smartphones grandes (iPhone Pro Max, Samsung Galaxy S/Note) */
+@media (max-width: 480px) and (min-width: 376px) {
+  .pagamento-wrapper {
+    padding-top: 6rem;
+  }
+  
+  .pagamento-main {
+    flex-direction: column;
+    padding: 0.8rem;
+    gap: 1rem;
+  }
+  
+  .resumo-pedido {
+    order: -1;
+    position: static;
+  }
+  
+  .medicamentos-section {
+    padding: 0.8rem;
+  }
+  
+  .resumo-pedido {
+    padding: 0.8rem;
+  }
+  
+  .medicamento-card {
+    padding: 0.6rem;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .medicamento-card img {
+    width: 50px;
+    height: 50px;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .detalhes h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .detalhes p {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .detalhes span {
+    font-size: 1rem;
+  }
+  
+  .btn-remove {
+    top: 0.3rem;
+    right: 0.3rem;
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+  
+  .medicamentos-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+  }
+  
+  .medicamentos-receita-section h3,
+  .medicamentos-balcao-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .resumo-pedido h3 {
+    font-size: 1.1rem;
+  }
+  
+  .itens-resumo div {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    padding: 0.4rem 0;
+  }
+  
+  .total {
+    font-size: 1.1rem;
+  }
+  
+  .botoes-pagamento button {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+  
+  .carrinho-vazio {
+    padding: 2rem 0.5rem;
+  }
+  
+  .carrinho-vazio h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Smartphones pequenos (iPhone SE, smartphones antigos) */
+@media (max-width: 375px) {
+  .pagamento-wrapper {
+    padding-top: 5rem;
+  }
+  
+  .pagamento-main {
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 0.8rem;
+  }
+  
+  .resumo-pedido {
+    order: -1;
+    position: static;
+  }
+  
+  .medicamentos-section {
+    padding: 0.6rem;
+  }
+  
+  .resumo-pedido {
+    padding: 0.6rem;
+  }
+  
+  .medicamento-card {
+    padding: 0.5rem;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .medicamento-card img {
+    width: 45px;
+    height: 45px;
+    margin-right: 0;
+    margin-bottom: 0.4rem;
+  }
+  
+  .detalhes h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .detalhes p {
+    font-size: 0.75rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .detalhes span {
+    font-size: 0.9rem;
+  }
+  
+  .btn-remove {
+    top: 0.2rem;
+    right: 0.2rem;
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+  
+  .medicamentos-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.6rem;
+  }
+  
+  .medicamentos-receita-section h3,
+  .medicamentos-balcao-section h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .resumo-pedido h3 {
+    font-size: 1rem;
+  }
+  
+  .itens-resumo div {
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+    padding: 0.3rem 0;
+  }
+  
+  .total {
+    font-size: 1rem;
+  }
+  
+  .botoes-pagamento {
+    gap: 0.6rem;
+  }
+  
+  .botoes-pagamento button {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .carrinho-vazio {
+    padding: 1.5rem 0.3rem;
+  }
+  
+  .carrinho-vazio h3 {
+    font-size: 1.1rem;
+  }
+  
+  .btn-resetar,
+  .btn-resetar-receita-sidebar {
+    padding: 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Orientação landscape para tablets */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .pagamento-wrapper {
+    padding-top: 6rem;
+  }
+  
+  .pagamento-main {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  
+  .resumo-pedido {
+    order: 0;
+    flex: 0 0 280px;
+  }
+  
+  .medicamento-card {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .medicamento-card img {
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+}
+
+/* Orientação landscape para smartphones */
+@media (max-width: 768px) and (orientation: landscape) {
+  .pagamento-wrapper {
+    padding-top: 4rem;
+  }
+  
+  .pagamento-main {
+    flex-direction: column;
+  }
+  
+  .medicamento-card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+  
+  .medicamento-card img {
+    margin-right: 8px;
+    margin-bottom: 0;
+  }
+}
+
+/* Ajustes para dispositivos com tela de alta densidade */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .medicamento-card img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+
+
+/* Ajustes para redução de movimento (acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+  .medicamento-card,
+  .btn-remove,
+  .botoes-pagamento button {
+    transition: none;
+  }
+  
+  .medicamento-card:hover,
+  .btn-remove:hover,
+  .botoes-pagamento button:hover {
+    transform: none;
+  }
+}
+
+/* Ajustes específicos para dispositivos Apple */
+@supports (-webkit-touch-callout: none) {
+  .btn-remove {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+  }
+  
+  .botoes-pagamento button {
+    -webkit-appearance: none;
+    -webkit-border-radius: 8px;
+  }
+}
+
+/* Ajustes para Samsung Internet Browser */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .medicamento-card {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 }

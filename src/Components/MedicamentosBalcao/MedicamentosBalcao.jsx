@@ -3,6 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import './MedicamentosBalcao.css';
 import Header from '../Header/Header';
 
+// IMPORTS DAS IMAGENS
+import aliviumImg from '/images/Remedios/alivium.jpg';
+import toragesicImg from '/images/Remedios/toragesic.jpg';
+import allegraImg from '/images/Remedios/Allegra.webp';
+import loratadinaImg from '/images/Remedios/Loratadina.webp';
+import benegripImg from '/images/Remedios/356239-benegrip-20-comprimidos.jpg.webp';
+import epoclerImg from '/images/Remedios/Epocler.jpeg';
+
 const MedicamentosBalcao = () => {
   const navigate = useNavigate();
   const [carrinho, setCarrinho] = useState([]);
@@ -24,7 +32,7 @@ const MedicamentosBalcao = () => {
       descricao: 'Ibuprofeno 400mg - 20 comprimidos',
       sintomas: ['Dor de cabeça', 'Dor muscular', 'Febre'],
       preco: 15.90,
-      imagem: '/public/images/Remedios/alivium-capsula-400mg-caixa-com-8-capsulas-gelatinosas_10701.jpg',
+      imagem: aliviumImg,
       categoria: 'Dor e Febre'
     },
     {
@@ -33,7 +41,7 @@ const MedicamentosBalcao = () => {
       descricao: 'Cetorolaco 10mg - 12 comprimidos',
       sintomas: ['Dor intensa', 'Dor pós-operatória'],
       preco: 28.50,
-      imagem: '/public/images/Remedios/toragesic.jpg',
+      imagem: toragesicImg,
       categoria: 'Dor e Febre'
     },
     {
@@ -42,7 +50,7 @@ const MedicamentosBalcao = () => {
       descricao: 'Fexofenadina 120mg - 10 comprimidos',
       sintomas: ['Rinite alérgica', 'Urticária'],
       preco: 32.90,
-      imagem: '/public/images/Remedios/Allegra.webp',
+      imagem: allegraImg,
       categoria: 'Alergia'
     },
     {
@@ -51,7 +59,7 @@ const MedicamentosBalcao = () => {
       descricao: 'Loratadina 10mg - 12 comprimidos',
       sintomas: ['Alergia', 'Coceira', 'Espirros'],
       preco: 8.90,
-      imagem: '/public/images/Remedios/Loratadina.webp',
+      imagem: loratadinaImg,
       categoria: 'Alergia'
     },
     {
@@ -60,7 +68,7 @@ const MedicamentosBalcao = () => {
       descricao: 'Paracetamol + Cafeína - 20 comprimidos',
       sintomas: ['Gripe', 'Resfriado', 'Dor de cabeça'],
       preco: 12.50,
-      imagem: '/public/images/Remedios/356239-benegrip-20-comprimidos.jpg.webp',
+      imagem: benegripImg,
       categoria: 'Gripes'
     },
     {
@@ -69,7 +77,7 @@ const MedicamentosBalcao = () => {
       descricao: 'Hidróxido de Alumínio - 240ml',
       sintomas: ['Azia', 'Queimação', 'Má digestão'],
       preco: 18.90,
-      imagem: '/public/images/Remedios/Epocler.jpeg',
+      imagem: epoclerImg,
       categoria: 'Digestão e Azia'
     },
     {
@@ -78,7 +86,7 @@ const MedicamentosBalcao = () => {
       descricao: 'kkkkkkkkkkkkkkkkkkkkk',
       sintomas: ['dor', 'tororo', 'vuc'],
       preco: 18.90,
-      imagem: '/api/placeholder/150/150',
+      imagem: 'https://placehold.co/150x150',
       categoria: 'Digestão e Azia'
     }
   ];
@@ -113,7 +121,6 @@ const MedicamentosBalcao = () => {
       <Header />
 
       <div className="main-content1">
-        
         <aside className="sidebar">
           <h3>Categorias</h3>
           <ul className="categorias-list">
