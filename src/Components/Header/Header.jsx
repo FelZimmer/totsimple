@@ -1,93 +1,163 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import logo from '/public/images/img/Vector.png';
-
 
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isProductMenuOpen, setProductMenuOpen] = useState(false);
 
-  const openMenu = () => {
-    setMobileMenuOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeMenu = () => {
-    setMobileMenuOpen(false);
-    document.body.style.overflow = 'auto';
-  };
-
-  const handleOverlayClick = (e) => {
-    if (e.target.classList.contains('mobile-overlay')) {
-      closeMenu();
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+    if (!isMobileMenuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
     }
   };
 
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    document.body.classList.remove('menu-open');
+  };
+
+  // Fechar menu ao redimensionar a tela
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768 && isMobileMenuOpen) {
+        closeMobileMenu();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isMobileMenuOpen]);
+
+  // Cleanup ao desmontar componente
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, []);
+
   return (
     <>
-      <header className="animate-on-load">
-        <div className="logo">
-          <img src={logo} alt="" className="imgheader" />
-          <a href="/"><i className="fas fa-brain"></i>Tot<span>Simple</span></a>
+    <div className='headermaecentro'>
+      <div className="navbar animate-fade-in">
+        {/* Logo */}
+        <div className="brand">
+          <img src={logo} alt="TotSimple Logo" className="brand-icon" />
+          <Link to="/">
+            <i className="fas fa-brain"></i>Tot<span>Simple</span>
+          </Link>
         </div>
 
-        <div className="nav-container">
-          <nav>
-            <a href="/">Home</a>
-            <div
-              className="dropdown"
+        {/* Desktop Navigation */}
+        <div className="navigation-wrapper">
+          <nav className="main-nav">
+            <Link to="/">Home</Link>
+            
+            <div 
+              className="nav-item-dropdown"
               onMouseEnter={() => setProductMenuOpen(true)}
               onMouseLeave={() => setProductMenuOpen(false)}
             >
               <a href="#produto">Produto</a>
               {isProductMenuOpen && (
-                <div className="dropdown-menu">
+                <div className="submenu">
                   <Link to="/Infotriagem">Totem Triagem</Link>
                   <Link to="/Infopagamento">Totem Pagamento</Link>
                 </div>
               )}
             </div>
-            <Link to="/About">
-            Sobre nós
-            </Link>
-            <Link to="/Contato">
-         Contato
-            </Link>
+            
+            <Link to="/About">Sobre nós</Link>
+            <Link to="/Contato">Contato</Link>
           </nav>
         </div>
 
-        <Link to="/prototipo">
-          <div className="cta-container">
-            <a href="#download" className="cta-button">Protótipo</a>
-          </div>
+        {/* CTA Button */}
+        <Link to="/prototipo" className="action-btn-wrapper">
+          <div className="action-btn">Protótipo</div>
         </Link>
 
-        <div className="menu-toggle" onClick={openMenu}>
-          <i className="fas fa-bars"></i>
+        {/* Mobile Menu Toggle */}
+        <div 
+          className={`hamburger-menu ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </header>
+      </div>
+              </div>
 
+
+
+
+
+
+      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="mobile-overlay active" onClick={handleOverlayClick}>
-          <div className="close-btn" onClick={closeMenu}>
-            <i className="fas fa-times"></i>
-          </div>
-
-          <nav className="mobile-nav">
-            <a href="#features">Home</a>
-            <div className="mobile-dropdown">
-              <span>Produto</span>
-              <Link to="/Infotriagem">Totem Triagem</Link>
-              <Link to="/Infopagamento">Totem Pagamento</Link>
-              
+        <div className="overlay active" onClick={(e) => {
+          if (e.target.classList.contains('overlay')) {
+            closeMobileMenu();
+          }
+        }}>
+          <div className="mobile-panel">
+            <div className="panel-close" onClick={closeMobileMenu}>
+              <i className="fas fa-times"></i>
             </div>
-            <a href="#pricing">Sobre nós</a>
-            <a href="#faq">Contato</a>
-            <a href="#download" className="mobile-cta">
-              <i className="fas fa-download"></i> Get the App
-            </a>
-          </nav>
+
+            <nav className="mobile-navigation">
+              <Link to="/" onClick={closeMobileMenu}>
+                <i className="fas fa-home"></i>
+                Home
+              </Link>
+
+              <div className="mobile-submenu">
+                <div 
+                  className="submenu-trigger"
+                  onClick={() => setProductMenuOpen(!isProductMenuOpen)}
+                >
+                  <span>
+                    <i className="fas fa-cube"></i>
+                    Produto
+                  </span>
+                  <i className={`fas fa-chevron-${isProductMenuOpen ? 'up' : 'down'}`}></i>
+                </div>
+                
+                {isProductMenuOpen && (
+                  <div className="submenu-items">
+                    <Link to="/Infotriagem" onClick={closeMobileMenu}>
+                      <i className="fas fa-desktop"></i>
+                      Totem Triagem
+                    </Link>
+                    <Link to="/Infopagamento" onClick={closeMobileMenu}>
+                      <i className="fas fa-credit-card"></i>
+                      Totem Pagamento
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <Link to="/About" onClick={closeMobileMenu}>
+                <i className="fas fa-info-circle"></i>
+                Sobre nós
+              </Link>
+
+              <Link to="/Contato" onClick={closeMobileMenu}>
+                <i className="fas fa-envelope"></i>
+                Contato
+              </Link>
+
+              <Link to="/prototipo" className="mobile-action-btn" onClick={closeMobileMenu}>
+                <i className="fas fa-download"></i>
+                Protótipo
+              </Link>
+            </nav>
+          </div>
         </div>
       )}
     </>
