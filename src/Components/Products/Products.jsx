@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import "./Products.css";
 import { Link } from "react-router-dom";
+import  tt  from "/public/images/img/traigemRealista.png"; 
+
 Link
 
 
@@ -38,7 +40,7 @@ export default function Products() {
 
       <div className="products-grid">
         <div className={`card fade-up ${isVisible ? "visible" : ""}`}>
-          <img src="/public/images/img/traigemRealista.png"  className="fade-img" />
+          <img src={tt}  className="fade-img" />
           <p>
           <strong>Totem de triagem : </strong>
         Projetado para otimizar o atendimento ao cliente, reduzir filas e melhorar a eficiência operacional.
