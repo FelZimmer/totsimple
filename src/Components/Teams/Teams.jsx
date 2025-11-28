@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./Team.css";
+import time from "/public/images/img/time.jpg";
 
 
 export default function Team() {
@@ -117,7 +118,7 @@ export default function Team() {
 
 
       <div className={`team-images fade-right ${isVisible ? "visible" : ""}`}>
-        <img src="/public/images/img/time.jpg" className="team-photo" />
+        <img src={time} className="team-photo" />
         
       </div>
 

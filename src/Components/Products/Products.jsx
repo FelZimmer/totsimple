@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./Products.css";
 import { Link } from "react-router-dom";
 import  tt  from "/public/images/img/traigemRealista.png"; 
+import tp from "/public/images/img/Pagamentorealista.png";
 
 Link
 
@@ -51,7 +52,7 @@ export default function Products() {
         </div>
 
         <div className={`card fade-up ${isVisible ? "visible" : ""}`}>
-          <img src="/public/images/img/Pagamentorealista.png" className="fade-img" />
+          <img src={tp} className="fade-img" />
           <p >
           <strong>Totem de pagamento :</strong> Facilita o processo de pagamento, oferecendo conveniência e agilidade aos clientes.
           </p>

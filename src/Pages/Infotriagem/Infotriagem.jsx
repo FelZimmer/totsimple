@@ -1,6 +1,8 @@
 import React from 'react';
 import './infotriagem.css';
 import Header from '../../Components/Header/Header';
+import tt2 from "/public/images/img/Copilot_20251025_203840.png";
+import totema from "/public/images/img/totemaa.png";
 
 const Infotriagem = () => {
   return (
@@ -42,7 +44,7 @@ const Infotriagem = () => {
           </div>
           
           <div className="info-image">
-            <img src="/public/images/img/Copilot_20251025_203840.png" alt="Totem de triagem" />
+            <img src={tt2} alt="Totem de triagem" />
           </div>
         </div>
         <div className="custom-shape-divider-bottom-1759704000">
@@ -123,7 +125,7 @@ const Infotriagem = () => {
         <div className="components-content">
           <div className="components-image">
             <div className="scanner-illustration">
-              <img src="/public/images/img/totemaa.png" alt="" />
+              <img src={totema} alt="" />
             </div>
           </div>
 
