@@ -3,15 +3,16 @@ import { Link, } from 'react-router-dom';
 import './CarrinhoPagamento.css';
 import Header from '../../Components/Header/Header';
 import FundoT from '../../Components/FundoTotem/FundoT';
-
+import ecobag from '/public/images/Remedios/ecobag.jpeg';
+import alcool from '/public/images/Remedios/alcool.jpeg';
 const CarrinhoPagamento = () => {
   
   const [medicamentosBalcao, setMedicamentosBalcao] = useState([]);
   
   // Medicamentos padrão da receita que sempre estarão disponíveis inicialmente
   const medicamentosPadraoReceita = [
-    { id: 101, nome: 'Amoxilina', descricao: 'Amoxilina 500mg - 21 comprimidos', preco: 45.90, imagem: '/images/photo1764356475.jpg', tipo: 'receita' },
-    { id: 102, nome: 'Avamys', descricao: 'Fluticasona 27,5mcg - 120 doses', preco: 89.50, imagem: '/public/images/Remedios/Avamys.png', tipo: 'receita' }
+    { id: 101, nome: 'Ecobag TotSimple', descricao: 'Sacola reutilizável que serve como alternativa às sacolas plásticas descartáveis.', preco: 45.90, imagem: ecobag, tipo: 'receita' },
+    { id: 102, nome: 'Álcool Gel 70% TotSimple', descricao: 'Serve para higienizar as mãos e desinfetar superfícies.', preco: 89.50, imagem: alcool, tipo: 'receita' }
   ];
 
   const [medicamentosReceita, setMedicamentosReceita] = useState(medicamentosPadraoReceita);

@@ -6,8 +6,8 @@ import FundoT from "../FundoTotem/FundoT";
 
 // === IMPORTANDO IMAGENS CORRETAMENTE ===
 
-import ecoBagImg from "/public/images/Remedios/Epocler.jpeg";
-import alcoolGelImg from "/public/images/Remedios/Avamys.png";
+import ecoBagImg from "/public/images/Remedios/ecobag.jpeg";
+import alcoolGelImg from "/public/images/Remedios/alcool.jpeg";
 
 const CarrinhoConfirmacao = () => {
   const navigate = useNavigate();

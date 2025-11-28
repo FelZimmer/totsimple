@@ -49,14 +49,14 @@ const Foto = () => {
           </div>
 
           <div className="medication">
-            <p><strong>Amoxilina 500mg</strong> ......................... 21 comprimidos</p>
+            <p><strong>Ecobag TotSimple</strong> ......................... Sacola reutilizável que serve como alternativa às sacolas plásticas descartáveis.</p>
           </div>
           <div className="medication">
-            <p><strong>Avamys - Fluticasona 27,5mcg</strong> ......................... 120 doses</p>
+            <p><strong>Álcool Gel 70% TotSimple</strong> ......................... Serve para higienizar as mãos e desinfetar superfícies.</p>
           </div>
 
           <div className="instructions">
-            <p>Tomar 1(um) comprimido por via oral, a cada 8(oito) horas por 7 dias</p>
+            <p>Brindes que se pode conseguir ao entrar em contato com a TotSimple.</p>
           </div>
 
           <div className="signature-section">
