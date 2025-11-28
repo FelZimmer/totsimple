@@ -4,12 +4,12 @@ import './MedicamentosBalcao.css';
 import Header from '../Header/Header';
 
 // IMPORTS DAS IMAGENS
-import aliviumImg from '/images/Remedios/alivium.jpg';
-import toragesicImg from '/images/Remedios/toragesic.jpg';
-import allegraImg from '/images/Remedios/Allegra.webp';
-import loratadinaImg from '/images/Remedios/Loratadina.webp';
-import benegripImg from '/images/Remedios/356239-benegrip-20-comprimidos.jpg.webp';
-import epoclerImg from '/images/Remedios/Epocler.jpeg';
+import aliviumImg from "../../assets/remeimg/alivium.jpg";
+import toragesicImg from "../../assets/remeimg/toragesic.jpg";
+import allegraImg from "../../assets/remeimg/Allegra.webp";
+import loratadinaImg from "../../assets/remeimg/Loratadina.webp"
+import benegripImg from "../../assets/remeimg/356239-benegrip-20-comprimidos.jpg.webp"
+import epoclerImg from "../../assets/remeimg/Epocler.jpeg";
 
 const MedicamentosBalcao = () => {
   const navigate = useNavigate();

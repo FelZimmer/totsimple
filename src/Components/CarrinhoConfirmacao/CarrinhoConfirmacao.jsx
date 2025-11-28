@@ -7,7 +7,7 @@ import FundoT from "../FundoTotem/FundoT";
 // === IMPORTANDO IMAGENS CORRETAMENTE ===
 
 import ecoBagImg from "../../assets/remeimg/tostro.jpg";
-import alcoolGelImg from '/images/Remedios/alivium.jpg';
+import alcoolGelImg from "../../assets/remeimg/tostro.jpg";
 
 const CarrinhoConfirmacao = () => {
   const navigate = useNavigate();
