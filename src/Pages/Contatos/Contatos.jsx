@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import "./Contact.css";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import cont from "/public/images/img/Copilot_20251025_203840.png";
+import contsis from "/public/images/img/SISTEMATOTEM.png";
 
 export default function Contact() {
   const sectionRef = useRef(null);
@@ -29,14 +31,14 @@ export default function Contact() {
       <Header />
       <section ref={sectionRef} className={`contact ${visible ? "show" : ""}`}>
         <div className="contact-header">
-          <img src="/public/images/img/Copilot_20251025_203840.png" alt="" />
+          <img src={cont} alt="" />
           <div className="contact-text">
             <h1>Estamos Aqui para Ouvir Sua Voz</h1>
             <p>
               Se você está buscando soluções personalizadas ou quer entender melhor nossos serviços, envie sua mensagem.
             </p>
           </div>
-          <img src="/public/images/img/SISTEMATOTEM.png" alt="" />
+          <img src={contsis} alt="" />
 
          
           <div className="custom-shape-divider-bottom-1759704000">

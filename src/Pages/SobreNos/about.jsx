@@ -4,6 +4,8 @@ import ProblemSolution from '../../Components/ProblemSolution/ProblemSolution';
 import MobileDevice from '../../Components/MobileDevice/MobileDevice';
 import Header from '../../Components/Header/Header';
 import "./components.css";
+import entrega from "/public/images/img/img111.png";
+import sis from "/public/images/img/SISTEMATOTEM.png";
 
 
 const Index = () => {
@@ -28,7 +30,7 @@ const Index = () => {
           </ul>
         </div>
         <div className="vision-illustration">
-          <img src='/public/images/img/SISTEMATOTEM.png'></img>
+          <img src={sis}></img>
         </div>
          <div className="custom-shape-divider-bottom-17597040001">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -42,7 +44,7 @@ const Index = () => {
     <section className="back-why-choose">
       <section className="why-choose-section">
         <div className="why-choose-illustration">
-         <img src="/public/images/img/img111.png" alt="" />
+         <img src={entrega} alt="" />
         </div>
         <div className="why-choose-content">
           <h2>O que entregamos?</h2>
