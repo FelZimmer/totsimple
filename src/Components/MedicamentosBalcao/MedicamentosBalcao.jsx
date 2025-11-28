@@ -4,12 +4,12 @@ import './MedicamentosBalcao.css';
 import Header from '../Header/Header';
 
 // IMPORTS DAS IMAGENS
-import aliviumImg from "../../assets/remeimg/alivium.jpg";
-import toragesicImg from "../../assets/remeimg/toragesic.jpg";
-import allegraImg from "../../assets/remeimg/Allegra.webp";
-import loratadinaImg from "../../assets/remeimg/Loratadina.webp"
-import benegripImg from "../../assets/remeimg/356239-benegrip-20-comprimidos.jpg.webp"
-import epoclerImg from "../../assets/remeimg/Epocler.jpeg";
+import aliviumImg from "/public/images/Remedios/alivium-capsula-400mg-caixa-com-8-capsulas-gelatinosas_10701.jpg";
+import toragesicImg from "/public/images/Remedios/toragesic.jpg";
+import allegraImg from "/public/images/Remedios/Allegra.webp";
+import loratadinaImg from "/public/images/Remedios/Loratadina.webp";
+import benegripImg from "/public/images/Remedios/356239-benegrip-20-comprimidos.jpg.webp";
+import epoclerImg from "/public/images/Remedios/Epocler.jpeg";
 
 const MedicamentosBalcao = () => {
   const navigate = useNavigate();
