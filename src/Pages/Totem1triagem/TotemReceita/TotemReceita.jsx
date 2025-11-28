@@ -26,8 +26,9 @@ const ScannerReceita = ({ onRetornar, onEscanear }) => {
 
   return (
     <>
+    <Header />
       <div className="scanner-tela">
-        <Header />
+        
 
         <div className="scanner-background">
           <FundoT />
