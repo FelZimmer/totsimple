@@ -65,28 +65,7 @@ const TotSimpleSelection = () => {
           </div>
        
     
-          <div className="prototype-card" >
-            <div className="card-header">
-              <div className="card-icon">💳</div>
-              <h3 className="card-title">Totem Pagamento</h3>
-            </div>
-            <p className="card-description">
-              Solução robusta para processamento de pagamentos com múltiplas formas de pagamento e alta segurança.
-            </p>
-            <ul className="card-features">
-              {pagamentoFeatures.map((feature, index) => (
-                <li key={index} className="feature-item">
-                  <span className="feature-check">✓</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            <Link to="/TotemPagamento">
-            <button className="card-button">
-              Ver Protótipo
-            </button>
-            </Link>
-          </div>
+        
         </div>
       </main>
     </div>

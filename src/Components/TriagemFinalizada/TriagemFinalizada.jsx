@@ -14,7 +14,7 @@ const TriagemFinalizada = () => {
   }, []);
 
   const handleNovaTriagem = () => {
-    navigate('/TotemPagamento'); 
+    navigate('/'); 
   };
 
   const handleAjuda = () => {
