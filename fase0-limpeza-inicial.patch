@@ -1,0 +1,88 @@
+diff --git a/package-lock.json b/package-lock.json
+index dc7126d..5739c12 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -1,18 +1,17 @@
+ {
+-  "name": "tcc2",
++  "name": "totsimple",
+   "version": "1.0.0",
+   "lockfileVersion": 3,
+   "requires": true,
+   "packages": {
+     "": {
+-      "name": "tcc2",
++      "name": "totsimple",
+       "version": "1.0.0",
+       "license": "ISC",
+       "dependencies": {
+         "react": "^19.1.1",
+         "react-dom": "^19.1.1",
+         "react-icons": "^5.5.0",
+-        "react-router": "^7.9.1",
+         "react-router-dom": "^7.9.1",
+         "vite": "^7.1.4"
+       },
+diff --git a/package.json b/package.json
+index f86a1f3..5fe539f 100644
+--- a/package.json
++++ b/package.json
+@@ -1,8 +1,8 @@
+ {
+-  "name": "tcc2",
++  "name": "totsimple",
+   "version": "1.0.0",
+-  "description": "Projeto TCC2 com React (Vite) + Node.js + MongoDB Atlas",
+-  "main": "index.js",
++  "description": "ToTSimple - totem de autoatendimento para farmácias, desenvolvido em React (Vite) + TailwindCSS",
++  "private": true,
+   "type": "module",
+   "scripts": {
+     "dev": "vite",
+@@ -14,7 +14,6 @@
+     "react": "^19.1.1",
+     "react-dom": "^19.1.1",
+     "react-icons": "^5.5.0",
+-    "react-router": "^7.9.1",
+     "react-router-dom": "^7.9.1",
+     "vite": "^7.1.4"
+   },
+diff --git a/src/Pages/PagamentoFim/PagamentoFim.jsx b/src/Pages/PagamentoFim/PagamentoFim.jsx
+index 3bdca76..ecbcf64 100644
+--- a/src/Pages/PagamentoFim/PagamentoFim.jsx
++++ b/src/Pages/PagamentoFim/PagamentoFim.jsx
+@@ -2,7 +2,7 @@ import React from 'react';
+ import './PagamentoFim.css';
+ import FundoT from '../../Components/FundoTotem/FundoT';
+ import Header from '../../Components/Header/Header';
+-import { Link } from 'react-router';
++import { Link } from 'react-router-dom';
+ Link
+ 
+ const PagamentoFim = () => {
+diff --git a/src/Pages/PagamentoScanner/Scanner.jsx b/src/Pages/PagamentoScanner/Scanner.jsx
+index 9f2e529..97507f6 100644
+--- a/src/Pages/PagamentoScanner/Scanner.jsx
++++ b/src/Pages/PagamentoScanner/Scanner.jsx
+@@ -3,7 +3,7 @@ import './Scanner.css';
+ import Header from '../../Components/Header/Header';
+ import FundoT from '../../Components/FundoTotem/FundoT';
+ import { FaBarcode } from 'react-icons/fa';
+-import { Link } from 'react-router';
++import { Link } from 'react-router-dom';
+ Link
+ 
+ const Scanner = () => {
+diff --git a/vite.config-DESKTOP-07464E1.js b/vite.config-DESKTOP-07464E1.js
+deleted file mode 100644
+index 8b14aa7..0000000
+--- a/vite.config-DESKTOP-07464E1.js
++++ /dev/null
+@@ -1,7 +0,0 @@
+-import { defineConfig } from 'vite'
+-import react from '@vitejs/plugin-react'
+-
+-export default defineConfig({
+-  plugins: [react()],
+-  
+-})

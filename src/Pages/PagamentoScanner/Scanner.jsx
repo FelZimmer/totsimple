@@ -3,7 +3,7 @@ import './Scanner.css';
 import Header from '../../Components/Header/Header';
 import FundoT from '../../Components/FundoTotem/FundoT';
 import { FaBarcode } from 'react-icons/fa';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 Link
 
 const Scanner = () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import './PagamentoFim.css';
 import FundoT from '../../Components/FundoTotem/FundoT';
 import Header from '../../Components/Header/Header';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 Link
 
 const PagamentoFim = () => {
