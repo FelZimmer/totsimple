@@ -1,0 +1,233 @@
+.totem-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+
+.geometric-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  filter: blur(16px);
+}
+
+
+.payment-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.card-headerr {
+  background: #0563A9;
+  padding: 3rem 2rem 2rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.card-headerr::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #0563A9;
+}
+
+.barcode-icon {
+  color: white;
+}
+
+.barcode-frame {
+  width: 120px;
+  height: 80px;
+  border: 3px solid white;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+}
+
+.barcode-frame::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 20px;
+  height: 20px;
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+}
+
+.barcode-frame::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 20px;
+  height: 20px;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+}
+
+.barcode-lines {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.barcode-line {
+  background-color: white;
+  height: 20px;
+}
+
+.barcode-line:nth-child(1) { width: 2px; }
+.barcode-line:nth-child(2) { width: 1px; }
+.barcode-line:nth-child(3) { width: 3px; }
+.barcode-line:nth-child(4) { width: 1px; }
+.barcode-line:nth-child(5) { width: 2px; }
+.barcode-line:nth-child(6) { width: 1px; }
+.barcode-line:nth-child(7) { width: 2px; }
+.barcode-line:nth-child(8) { width: 3px; }
+.barcode-line:nth-child(9) { width: 1px; }
+.barcode-line:nth-child(10) { width: 2px; }
+
+.barcode-lines-bottom .barcode-line {
+  height: 16px;
+}
+
+.card-content {
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.start-buttonn {
+  background: linear-gradient(135deg, #0563A9, #55a0f0);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.start-buttonn:hover {
+ transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(132, 191, 255, 0.45);
+}
+
+.start-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+  .totem-container {
+    padding: 1rem;
+  }
+  
+  .logo {
+    top: 1rem;
+    left: 1rem;
+  }
+  
+  .logo-text {
+    font-size: 1rem;
+  }
+  
+  .payment-card {
+    max-width: 350px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+  }
+  
+  .geometric-shape {
+    border-width: 6px;
+  }
+  
+  .shape-1 {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .shape-2 {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .shape-3 {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .shape-4 {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-header {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+  
+  .card-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .barcode-frame {
+    width: 100px;
+    height: 70px;
+  }
+  
+  .card-title {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .start-button {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+}
