@@ -48,13 +48,6 @@ export default function Team() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [paragraphTransition, setParagraphTransition] = useState(false);
 
-  const handlePrev = () => {
-    setParagraphTransition(true);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
-      setParagraphTransition(false);
-    }, 200);
-  };
   const handleNext = () => {
   setParagraphTransition(true);
   setTimeout(() => {

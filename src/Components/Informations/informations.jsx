@@ -15,6 +15,7 @@ const Informations = () => {
   const [visibleCircles, setVisibleCircles] = useState([false, false, false, false]);
 
   useEffect(() => {
+    const node = textRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) setTextVisible(true);
@@ -22,15 +23,16 @@ const Informations = () => {
       { threshold: 0.3 }
     );
 
-    if (textRef.current) observer.observe(textRef.current);
+    if (node) observer.observe(node);
 
     return () => {
-      if (textRef.current) observer.unobserve(textRef.current);
+      if (node) observer.unobserve(node);
     };
   }, []);
 
   useEffect(() => {
-    const observers = circlesRef.current.map((circle, index) => {
+    const circles = circlesRef.current;
+    const observers = circles.map((circle, index) => {
       const obs = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
@@ -47,7 +49,7 @@ const Informations = () => {
       return obs;
     });
 
-    return () => observers.forEach((obs, i) => circlesRef.current[i] && obs.unobserve(circlesRef.current[i]));
+    return () => observers.forEach((obs, i) => circles[i] && obs.unobserve(circles[i]));
   }, []);
 
   const icons = [<BiTimer />, <MdOutlineMoodBad />, <LiaPeopleCarrySolid />, <RiMentalHealthLine />];

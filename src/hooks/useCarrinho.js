@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CarrinhoContext } from "../context/CarrinhoContext";
+import { CarrinhoContext } from "../context/carrinhoContextInstance";
 import { calcularSubtotal, calcularTotal } from "../utils/carrinho";
 
 export function useCarrinho() {

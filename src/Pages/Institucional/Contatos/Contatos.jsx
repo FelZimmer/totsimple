@@ -10,6 +10,7 @@ export default function Contact() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const node = sectionRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -18,11 +19,11 @@ export default function Contact() {
       },
       { threshold: 0.2 }
     );
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (node) {
+      observer.observe(node);
     }
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (node) observer.unobserve(node);
     };
   }, []);
 

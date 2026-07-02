@@ -1,5 +1,6 @@
-import { createContext, useReducer, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 import { medicamentosPadraoReceita } from "../data/medicamentosPadrao";
+import { CarrinhoContext } from "./carrinhoContextInstance";
 
 const CARRINHO_KEY = "carrinho";
 const RECEITA_KEY = "medicamentosReceita";
@@ -48,8 +49,6 @@ function reducer(state, action) {
       return state;
   }
 }
-
-export const CarrinhoContext = createContext(null);
 
 export function CarrinhoProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, undefined, estadoInicial);

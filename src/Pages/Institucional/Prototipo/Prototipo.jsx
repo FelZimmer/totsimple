@@ -13,14 +13,6 @@ const TotSimpleSelection = () => {
     'Suporte multilíngue'
   ];
 
-  const pagamentoFeatures = [
-    'Múltiplas formas de pagamento',
-    'Processamento seguro',
-    'Emissão de comprovantes',
-    'Integração com sistemas fiscais',
-    'Interface touch amigável'
-  ];
-
   return (
     <div className='background-prototipo'>
     <div className="totsimple-app">

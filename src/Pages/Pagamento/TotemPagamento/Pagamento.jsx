@@ -7,12 +7,10 @@ import FundoT from '../../../Components/FundoTotem/FundoT';
 
 const TotemPagamento = () => {
   const handleIniciarTriagem = () => {
-    console.log('Iniciando triagem...');
    
   };
 
   const handleAcessibilidade = () => {
-    console.log('Abrindo opções de acessibilidade...');
    
   };
 

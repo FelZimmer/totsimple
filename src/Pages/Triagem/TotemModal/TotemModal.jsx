@@ -10,14 +10,12 @@ const TriagemTela = () => {
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
-    console.log('Opção selecionada:', option);
     
     alert(`Você selecionou: ${option === 'receita' ? 'Tenho Receita' : 'Medicamentos do Balcão (Sem Receita)'}`);
   };
 
   const handleCancel = () => {
     setSelectedOption(null);
-    console.log('Cancelado');
   };
 
   return (

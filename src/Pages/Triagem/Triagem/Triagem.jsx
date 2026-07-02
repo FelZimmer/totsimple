@@ -6,12 +6,10 @@ import FundoT from '../../../Components/FundoTotem/FundoT';
 
 const TotemTriagem = () => {
   const handleIniciarTriagem = () => {
-    console.log('Iniciando triagem...');
     // Aqui seria implementada a lógica para iniciar a triagem
   };
 
   const handleAcessibilidade = () => {
-    console.log('Abrindo opções de acessibilidade...');
     // Aqui seria implementada a lógica para acessibilidade
   };
 

@@ -10,13 +10,11 @@ const ScannerReceita = ({ onRetornar, onEscanear }) => {
 
   const handleRetornar = () => {
     if (onRetornar) onRetornar();
-    console.log('Retornando para tela anterior');
   };
 
   const handleEscanear = () => {
     setIsScanning(true);
     if (onEscanear) onEscanear();
-    console.log('Iniciando escaneamento da receita');
 
     setTimeout(() => {
       setIsScanning(false);

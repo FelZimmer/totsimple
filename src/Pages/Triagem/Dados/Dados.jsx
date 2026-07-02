@@ -22,17 +22,14 @@ const Dados = () => {
   };
 
   const handleConfirmarDados = () => {
-    console.log('Dados confirmados:', formData);
     
   };
 
   const handleVoltarScanner = () => {
-    console.log('Voltando para scanner');
     
   };
 
   const handleCancelarTriagem = () => {
-    console.log('Cancelando triagem');
    
   };
 
