@@ -1,8 +1,8 @@
 import React from 'react';
 import './infopagamento.css';
 import Header from '../../Components/Header/Header';
-import tp2 from "/public/images/img/Copilot_20251025_203840.png";
-import totemp from "/public/images/img/totemaa.png";
+import tp2 from "/public/images/ilustracoes/totem-illustration.webp";
+import totemp from "/public/images/ilustracoes/totem-generic.webp";
 
 const Infotriagem = () => {
   return (

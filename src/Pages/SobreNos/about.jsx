@@ -4,8 +4,8 @@ import ProblemSolution from '../../Components/ProblemSolution/ProblemSolution';
 import MobileDevice from '../../Components/MobileDevice/MobileDevice';
 import Header from '../../Components/Header/Header';
 import "./components.css";
-import entrega from "/public/images/img/img111.png";
-import sis from "/public/images/img/SISTEMATOTEM.png";
+import entrega from "/public/images/ilustracoes/entrega.webp";
+import sis from "/public/images/ilustracoes/totem-system.webp";
 
 
 const Index = () => {

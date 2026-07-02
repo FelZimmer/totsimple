@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import "./Contact.css";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
-import cont from "/public/images/img/Copilot_20251025_203840.png";
-import contsis from "/public/images/img/SISTEMATOTEM.png";
+import cont from "/public/images/ilustracoes/totem-illustration.webp";
+import contsis from "/public/images/ilustracoes/totem-system.webp";
 
 export default function Contact() {
   const sectionRef = useRef(null);

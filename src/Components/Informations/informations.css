@@ -10,6 +10,7 @@
 }
 
 .information-card {
+  /* TODO: imagem de fundo pendente - aguardando arquivo definitivo do CustomerSatisfaction.jpg */
   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)), url('/images/CustomerSatisfaction.jpg');
   background-size: cover;
   background-position: center;

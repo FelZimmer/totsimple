@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import "./Products.css";
 import { Link } from "react-router-dom";
-import  tt  from "/public/images/img/traigemRealista.png"; 
-import tp from "/public/images/img/Pagamentorealista.png";
+import  tt  from "/public/images/ilustracoes/triagem-mockup.webp"; 
+import tp from "/public/images/ilustracoes/payment-mockup.webp";
 
 Link
 

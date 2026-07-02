@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./HeroSection.css";
-import totem from "./totemm.png";
+import totem from "/public/images/ilustracoes/hero-totem.webp";
 import { Link } from "react-router";
 Link
 
