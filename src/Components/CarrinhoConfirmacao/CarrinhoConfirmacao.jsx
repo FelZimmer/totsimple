@@ -1,119 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./CarrinhoConfirmacao.css";
 import Header from "../Header/Header";
 import FundoT from "../FundoTotem/FundoT";
-
-// === IMPORTANDO IMAGENS CORRETAMENTE ===
-
-import ecoBagImg from "/public/images/Remedios/ecobag.jpeg";
-import alcoolGelImg from "/public/images/Remedios/alcool.jpeg";
+import { useCarrinho } from "../../hooks/useCarrinho";
 
 const CarrinhoConfirmacao = () => {
   const navigate = useNavigate();
-  const [medicamentosBalcao, setMedicamentosBalcao] = useState([]);
-
-  // Medicamentos padrão da receita
-  const medicamentosPadraoReceita = [
-    {
-      id: 101,
-      nome: "Ecobag ToTSimple",
-      descricao:
-        "Sacola reutilizável que serve como alternativa às sacolas plásticas descartáveis.",
-      preco: 45.9,
-      imagem: ecoBagImg,
-      tipo: "receita",
-    },
-    {
-      id: 102,
-      nome: "Álcool Gel 70% ToTSimple",
-      descricao:
-        "Serve para higienizar as mãos e desinfetar superfícies.",
-      preco: 89.5,
-      imagem: alcoolGelImg,
-      tipo: "receita",
-    },
-  ];
-
-  const [medicamentosReceita, setMedicamentosReceita] = useState(medicamentosPadraoReceita);
-
-  useEffect(() => {
-    const carrinhoSalvo = localStorage.getItem("carrinho");
-    if (carrinhoSalvo) {
-      const medicamentos = JSON.parse(carrinhoSalvo).map((med) => ({
-        ...med,
-        tipo: "balcao",
-      }));
-      setMedicamentosBalcao(medicamentos);
-    }
-
-   
-    const receitaSalva = localStorage.getItem("medicamentosReceita");
-    if (receitaSalva) {
-      const receitaParsed = JSON.parse(receitaSalva);
-      if (receitaParsed.length === 0) {
-        setMedicamentosReceita(medicamentosPadraoReceita);
-        localStorage.setItem(
-          "medicamentosReceita",
-          JSON.stringify(medicamentosPadraoReceita)
-        );
-      } else {
-        setMedicamentosReceita(receitaParsed);
-      }
-    } else {
-      localStorage.setItem(
-        "medicamentosReceita",
-        JSON.stringify(medicamentosPadraoReceita)
-      );
-    }
-  }, []);
-
-  const removerMedicamentoBalcao = (id) => {
-    const novosMedicamentos = medicamentosBalcao.filter((med) => med.id !== id);
-    setMedicamentosBalcao(novosMedicamentos);
-    localStorage.setItem("carrinho", JSON.stringify(novosMedicamentos));
-  };
-
-  const removerMedicamentoReceita = (id) => {
-    const novosMedicamentosReceita = medicamentosReceita.filter(
-      (med) => med.id !== id
-    );
-    setMedicamentosReceita(novosMedicamentosReceita);
-    localStorage.setItem(
-      "medicamentosReceita",
-      JSON.stringify(novosMedicamentosReceita)
-    );
-  };
+  const {
+    medicamentosBalcao,
+    medicamentosReceita,
+    todosMedicamentos,
+    subtotal,
+    desconto,
+    total,
+    removerBalcao,
+    removerReceita,
+    resetarReceita,
+    limparTudo,
+  } = useCarrinho();
 
   const adicionarMaisMedicamentos = () => navigate("/MedicamentosBalcao");
 
   const finalizarTriagem = () => navigate("/TriagemFinalizada");
 
   const cancelarTriagem = () => {
-    localStorage.removeItem("carrinho");
-    setMedicamentosReceita(medicamentosPadraoReceita);
-    localStorage.setItem(
-      "medicamentosReceita",
-      JSON.stringify(medicamentosPadraoReceita)
-    );
+    limparTudo();
     navigate("/");
   };
-
-  const resetarMedicamentosReceita = () => {
-    setMedicamentosReceita(medicamentosPadraoReceita);
-    localStorage.setItem(
-      "medicamentosReceita",
-      JSON.stringify(medicamentosPadraoReceita)
-    );
-  };
-
-  const todosMedicamentos = [...medicamentosReceita, ...medicamentosBalcao];
-  const subtotal = todosMedicamentos.reduce(
-    (total, med) => total + med.preco,
-    0
-  );
-  const desconto = 0.0;
-  const total = subtotal - desconto;
 
   return (
     <>
@@ -151,9 +65,7 @@ const CarrinhoConfirmacao = () => {
                         </div>
                         <button
                           className="btn-remove"
-                          onClick={() =>
-                            removerMedicamentoReceita(medicamento.id)
-                          }
+                          onClick={() => removerReceita(medicamento.id)}
                         >
                           ✕
                         </button>
@@ -187,9 +99,7 @@ const CarrinhoConfirmacao = () => {
                         </div>
                         <button
                           className="btn-remove"
-                          onClick={() =>
-                            removerMedicamentoBalcao(medicamento.id)
-                          }
+                          onClick={() => removerBalcao(medicamento.id)}
                         >
                           ✕
                         </button>
@@ -204,7 +114,7 @@ const CarrinhoConfirmacao = () => {
                   <div className="carrinho-vazio">
                     <h2>Nenhum medicamento selecionado</h2>
                     <p>Adicione medicamentos do balcão para continuar.</p>
-                    <button className="btn-resetar" onClick={resetarMedicamentosReceita}>
+                    <button className="btn-resetar" onClick={resetarReceita}>
                       Restaurar Medicamentos da Receita
                     </button>
                   </div>
@@ -242,7 +152,7 @@ const CarrinhoConfirmacao = () => {
                   {medicamentosReceita.length === 0 && (
                     <button
                       className="btn-resetar-receita"
-                      onClick={resetarMedicamentosReceita}
+                      onClick={resetarReceita}
                     >
                       Restaurar Medicamentos da Receita
                     </button>

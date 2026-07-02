@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MedicamentosBalcao.css';
 import Header from '../Header/Header';
+import { useCarrinho } from '../../hooks/useCarrinho';
 
 // IMPORTS DAS IMAGENS
 import aliviumImg from "/public/images/Remedios/alivium-capsula-400mg-caixa-com-8-capsulas-gelatinosas_10701.jpg";
@@ -14,7 +15,7 @@ import TOtimg from "/public/images/img/Vector.png";
 
 const MedicamentosBalcao = () => {
   const navigate = useNavigate();
-  const [carrinho, setCarrinho] = useState([]);
+  const { carrinho, adicionarBalcao, limparCarrinho } = useCarrinho();
   const [categoriaAtiva, setCategoriaAtiva] = useState('Dor e Febre');
 
   const categorias = [
@@ -92,17 +93,8 @@ const MedicamentosBalcao = () => {
     }
   ];
 
-  useEffect(() => {
-    const carrinhoSalvo = localStorage.getItem('carrinho');
-    if (carrinhoSalvo) {
-      setCarrinho(JSON.parse(carrinhoSalvo));
-    }
-  }, []);
-
   const adicionarAoCarrinho = (medicamento) => {
-    const novoCarrinho = [...carrinho, medicamento];
-    setCarrinho(novoCarrinho);
-    localStorage.setItem('carrinho', JSON.stringify(novoCarrinho));
+    adicionarBalcao(medicamento);
   };
 
   const finalizarTriagem = () => {
@@ -110,8 +102,7 @@ const MedicamentosBalcao = () => {
   };
 
   const abandonarCompra = () => {
-    setCarrinho([]);
-    localStorage.removeItem('carrinho');
+    limparCarrinho();
     navigate('/');
   };
 

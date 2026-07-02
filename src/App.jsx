@@ -1,5 +1,6 @@
 import './App.css'
 
+import { CarrinhoProvider } from './context/CarrinhoContext'
 import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
 import HeroSection from './Components/Hero/Hero'
@@ -51,31 +52,33 @@ function HomePage() {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/prototipo" element={<Prototipo />} />
-        <Route path="/Contato" element={<Contact/>}> </Route>
-        <Route path="/Triagem" element={<Triagem/>}> </Route>
-        <Route path="/TotemModal" element={<TotemModal/>}></Route>
-         <Route path="/TotemReceita" element={<TotemReceita/>}></Route>
-         <Route path="/Foto" element={<Foto/>}></Route>
-          <Route path="/Infotriagem" element={<Infotriagem/>}></Route>
-          <Route path="/Infopagamento" element={<Infopagamento/>}></Route>
-          <Route path="/Dados" element={<Dados/>}></Route>
-          <Route path="/About" element={<About/>}></Route>
-          <Route path="/CarrinhoConfirmacao" element={<CarrinhoConfirmacao/>}></Route>
-          <Route path="/MedicamentosBalcao" element={<MedicamentosBalcao/>}></Route>
-          <Route path="/TriagemFinalizada" element={<TriagemFinalizada/>}></Route>
-          <Route path="/TotemPagamento" element={<TotemPagamento/>}></Route>
-          <Route path="/Scanner" element={<Scanner/>}></Route>
-          <Route path="/CarrinhoPagamento" element={<CarrinhoPagamento/>}></Route>
-          <Route path="/Cartao" element={<Cartao/>}></Route>
-          <Route path="/Pix" element={<Pix/>}></Route>
-          
-          <Route path="/PagamentoFim" element={<PagamentoFim/>}></Route>
-      </Routes>
-    </Router>
+    <CarrinhoProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/prototipo" element={<Prototipo />} />
+          <Route path="/Contato" element={<Contact/>}> </Route>
+          <Route path="/Triagem" element={<Triagem/>}> </Route>
+          <Route path="/TotemModal" element={<TotemModal/>}></Route>
+           <Route path="/TotemReceita" element={<TotemReceita/>}></Route>
+           <Route path="/Foto" element={<Foto/>}></Route>
+            <Route path="/Infotriagem" element={<Infotriagem/>}></Route>
+            <Route path="/Infopagamento" element={<Infopagamento/>}></Route>
+            <Route path="/Dados" element={<Dados/>}></Route>
+            <Route path="/About" element={<About/>}></Route>
+            <Route path="/CarrinhoConfirmacao" element={<CarrinhoConfirmacao/>}></Route>
+            <Route path="/MedicamentosBalcao" element={<MedicamentosBalcao/>}></Route>
+            <Route path="/TriagemFinalizada" element={<TriagemFinalizada/>}></Route>
+            <Route path="/TotemPagamento" element={<TotemPagamento/>}></Route>
+            <Route path="/Scanner" element={<Scanner/>}></Route>
+            <Route path="/CarrinhoPagamento" element={<CarrinhoPagamento/>}></Route>
+            <Route path="/Cartao" element={<Cartao/>}></Route>
+            <Route path="/Pix" element={<Pix/>}></Route>
+            
+            <Route path="/PagamentoFim" element={<PagamentoFim/>}></Route>
+        </Routes>
+      </Router>
+    </CarrinhoProvider>
   )
 }
 

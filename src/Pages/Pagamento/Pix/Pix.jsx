@@ -5,30 +5,12 @@ import { MdOutlinePayment } from 'react-icons/md';
 import FundoT from '../../../Components/FundoTotem/FundoT';
 import { useNavigate } from 'react-router-dom';
 import { BsQrCodeScan } from 'react-icons/bs';
+import { useCarrinho } from '../../../hooks/useCarrinho';
 
 const Pix = () => {
-  const [total, setTotal] = useState(0);
+  const { total } = useCarrinho();
   const [contador, setContador] = useState(10); 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    
-    const carrinhoSalvo = localStorage.getItem('carrinho');
-    let carrinho = [];
-    if (carrinhoSalvo) {
-      carrinho = JSON.parse(carrinhoSalvo);
-    }
-
-    const medicamentosReceita = [
-      { id: 101, nome: 'Amoxilina', descricao: 'Amoxilina 500mg - 21 comprimidos', preco: 45.90 },
-      { id: 102, nome: 'Avamys', descricao: 'Fluticasona 27,5mcg - 120 doses', preco: 89.50 }
-    ];
-
-    const todosMedicamentos = [...medicamentosReceita, ...carrinho];
-    const subtotal = todosMedicamentos.reduce((total, med) => total + med.preco, 0);
-    setTotal(subtotal.toFixed(2));
-  }, []);
-
 
   useEffect(() => {
     if (contador <= 0) {
@@ -56,7 +38,7 @@ const Pix = () => {
 
         <div className="total-section">
           <span className="total-label">Total</span>
-          <span className="total-amount">R$ {total}</span>
+          <span className="total-amount">R$ {total.toFixed(2)}</span>
         </div>
 
         <div className="card-machine-container">

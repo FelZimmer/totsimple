@@ -14,7 +14,7 @@ const TriagemFinalizada = () => {
   }, []);
 
   const handleNovaTriagem = () => {
-    navigate('/'); 
+    navigate('/CarrinhoPagamento'); 
   };
 
   const handleAjuda = () => {
