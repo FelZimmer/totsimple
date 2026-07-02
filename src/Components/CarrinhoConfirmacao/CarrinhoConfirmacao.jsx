@@ -4,6 +4,8 @@ import "./CarrinhoConfirmacao.css";
 import Header from "../Header/Header";
 import FundoT from "../FundoTotem/FundoT";
 import { useCarrinho } from "../../hooks/useCarrinho";
+import MedicamentoCard from "./components/MedicamentoCard";
+import ResumoPedido from "./components/ResumoPedido";
 
 const CarrinhoConfirmacao = () => {
   const navigate = useNavigate();
@@ -49,27 +51,12 @@ const CarrinhoConfirmacao = () => {
 
                   <div className="medicamentos-grid">
                     {medicamentosReceita.map((medicamento) => (
-                      <div
+                      <MedicamentoCard
                         key={medicamento.id}
-                        className="medicamento-card receita"
-                      >
-                        <div className="medicamento-image">
-                          <img src={medicamento.imagem} alt={medicamento.nome} />
-                        </div>
-                        <div className="medicamento-details">
-                          <h3>{medicamento.nome}</h3>
-                          <p>{medicamento.descricao}</p>
-                          <div className="medicamento-price">
-                            R$ {medicamento.preco.toFixed(2)}
-                          </div>
-                        </div>
-                        <button
-                          className="btn-remove"
-                          onClick={() => removerReceita(medicamento.id)}
-                        >
-                          ✕
-                        </button>
-                      </div>
+                        medicamento={medicamento}
+                        tipo="receita"
+                        onRemover={removerReceita}
+                      />
                     ))}
                   </div>
                 </>
@@ -83,27 +70,12 @@ const CarrinhoConfirmacao = () => {
 
                   <div className="medicamentos-grid">
                     {medicamentosBalcao.map((medicamento) => (
-                      <div
+                      <MedicamentoCard
                         key={medicamento.id}
-                        className="medicamento-card balcao"
-                      >
-                        <div className="medicamento-image">
-                          <img src={medicamento.imagem} alt={medicamento.nome} />
-                        </div>
-                        <div className="medicamento-details">
-                          <h3>{medicamento.nome}</h3>
-                          <p>{medicamento.descricao}</p>
-                          <div className="medicamento-price">
-                            R$ {medicamento.preco.toFixed(2)}
-                          </div>
-                        </div>
-                        <button
-                          className="btn-remove"
-                          onClick={() => removerBalcao(medicamento.id)}
-                        >
-                          ✕
-                        </button>
-                      </div>
+                        medicamento={medicamento}
+                        tipo="balcao"
+                        onRemover={removerBalcao}
+                      />
                     ))}
                   </div>
                 </>
@@ -121,60 +93,17 @@ const CarrinhoConfirmacao = () => {
                 )}
             </div>
 
-            <div className="sidebar-resumo">
-              <div className="resumo-container">
-                <h3>Resumo do Pedido</h3>
-                <div className="resumo-items">
-                  <div className="resumo-item">
-                    <span>Subtotal:</span>
-                    <span>R$ {subtotal.toFixed(2)}</span>
-                  </div>
-
-                  <div className="resumo-item">
-                    <span>Desconto:</span>
-                    <span>R$ {desconto.toFixed(2)}</span>
-                  </div>
-
-                  <div className="resumo-item total">
-                    <span>Total:</span>
-                    <span>R$ {total.toFixed(2)}</span>
-                  </div>
-                </div>
-
-                <div className="action-buttons">
-                  <button
-                    className="btn-adicionar-medicamentos"
-                    onClick={adicionarMaisMedicamentos}
-                  >
-                    Adicionar mais medicamentos do balcão
-                  </button>
-
-                  {medicamentosReceita.length === 0 && (
-                    <button
-                      className="btn-resetar-receita"
-                      onClick={resetarReceita}
-                    >
-                      Restaurar Medicamentos da Receita
-                    </button>
-                  )}
-
-                  <button
-                    className="btn-finalizar-pedido"
-                    onClick={finalizarTriagem}
-                    disabled={todosMedicamentos.length === 0}
-                  >
-                    Finalizar Triagem
-                  </button>
-
-                  <button
-                    className="btn-cancelar-pedido"
-                    onClick={cancelarTriagem}
-                  >
-                    Cancelar Triagem
-                  </button>
-                </div>
-              </div>
-            </div>
+            <ResumoPedido
+              subtotal={subtotal}
+              desconto={desconto}
+              total={total}
+              temMedicamentosReceita={medicamentosReceita.length > 0}
+              temMedicamentos={todosMedicamentos.length > 0}
+              onAdicionarMais={adicionarMaisMedicamentos}
+              onResetarReceita={resetarReceita}
+              onFinalizar={finalizarTriagem}
+              onCancelar={cancelarTriagem}
+            />
           </div>
         </main>
       </div>

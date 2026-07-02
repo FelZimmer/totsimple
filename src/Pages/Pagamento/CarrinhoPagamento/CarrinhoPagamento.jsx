@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './CarrinhoPagamento.css';
 import Header from '../../../Components/Header/Header';
 import FundoT from '../../../Components/FundoTotem/FundoT';
 import { useCarrinho } from '../../../hooks/useCarrinho';
+import MedicamentoCard from './components/MedicamentoCard';
+import ResumoPedido from './components/ResumoPedido';
 
 const CarrinhoPagamento = () => {
   const {
@@ -34,21 +35,12 @@ const CarrinhoPagamento = () => {
             <div className="medicamentos-receita-section">
               <h3>Medicamentos da Receita</h3>
               {medicamentosReceita.map(med => (
-                <div key={med.id} className="medicamento-card receita">
-                  <img src={med.imagem} alt={med.nome} />
-                  <div className="detalhes">
-                    <h3>{med.nome}</h3>
-                    <p>{med.descricao}</p>
-                    <span>R$ {med.preco.toFixed(2)}</span>
-                  </div>
-                  <button 
-                    className="btn-remove" 
-                    onClick={() => removerReceita(med.id)}
-                    title="Remover medicamento da receita"
-                  >
-                    ✕
-                  </button>
-                </div>
+                <MedicamentoCard
+                  key={med.id}
+                  medicamento={med}
+                  tipo="receita"
+                  onRemover={removerReceita}
+                />
               ))}
             </div>
           )}
@@ -57,21 +49,12 @@ const CarrinhoPagamento = () => {
             <div className="medicamentos-balcao-section">
               <h3>Medicamentos do Balcão</h3>
               {medicamentosBalcao.map(med => (
-                <div key={med.id} className="medicamento-card balcao">
-                  <img src={med.imagem} alt={med.nome} />
-                  <div className="detalhes">
-                    <h3>{med.nome}</h3>
-                    <p>{med.descricao}</p>
-                    <span>R$ {med.preco.toFixed(2)}</span>
-                  </div>
-                  <button 
-                    className="btn-remove" 
-                    onClick={() => removerBalcao(med.id)}
-                    title="Remover medicamento do balcão"
-                  >
-                    ✕
-                  </button>
-                </div>
+                <MedicamentoCard
+                  key={med.id}
+                  medicamento={med}
+                  tipo="balcao"
+                  onRemover={removerBalcao}
+                />
               ))}
             </div>
           )}
@@ -87,42 +70,14 @@ const CarrinhoPagamento = () => {
           )}
         </div>
 
-        <div className="resumo-pedido">
-          <h3>Resumo do Pedido</h3>
-          <div className="itens-resumo">
-            <div><span>Subtotal:</span><span>R$ {subtotal.toFixed(2)}</span></div>
-            <div><span>Desconto:</span><span>R$ {desconto.toFixed(2)}</span></div>
-            <div className="total"><span>Total:</span><span>R$ {total.toFixed(2)}</span></div>
-          </div>
-
-          {medicamentosReceita.length === 0 && (
-            <button className="btn-resetar-receita-sidebar" onClick={resetarReceita}>
-              Restaurar Medicamentos da Receita
-            </button>
-          )}
-
-          <div className="botoes-pagamento">
-            <Link to="/Cartao">
-            <button 
-              className='CartaoCOR'
-              disabled={todosMedicamentos.length === 0}
-            >
-              Pagar com Cartão
-            </button>
-            </Link>
-            <Link to='/Pix'>
-            <button  
-              className='PixCor'
-              disabled={todosMedicamentos.length === 0}
-            >
-              Pagar com PIX
-            </button>
-            </Link>
-            <Link to='/TotemPagamento'>
-            <button  className="cancelar">Cancelar</button>
-            </Link>
-          </div>
-        </div>
+        <ResumoPedido
+          subtotal={subtotal}
+          desconto={desconto}
+          total={total}
+          temMedicamentosReceita={medicamentosReceita.length > 0}
+          temMedicamentos={todosMedicamentos.length > 0}
+          onResetarReceita={resetarReceita}
+        />
       </main>
     </div>
     </>
