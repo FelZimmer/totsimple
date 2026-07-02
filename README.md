@@ -48,10 +48,10 @@ As drogarias brasileiras enfrentam desafios crescentes: filas longas, sobrecarga
 ![React](https://img.shields.io/badge/React.js-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-### Back-end
+### Back-end *(planejado)*
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 
-### Banco de Dados
+### Banco de Dados *(planejado)*
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ### Design & Gestão
@@ -97,6 +97,12 @@ Acesse `http://localhost:5173` no navegador.
 npm run build
 ```
 
+### Lint
+
+```bash
+npm run lint
+```
+
 ---
 
 ## 🏗️ Arquitetura do Sistema
@@ -105,11 +111,12 @@ npm run build
 totsimple/
 ├── public/
 │   └── images/
-│       ├── Remedios/           # Imagens de medicamentos
-│       ├── img/                # Imagens gerais
-│       └── team/               # Fotos da equipe
+│       ├── Remedios/            # Imagens de medicamentos
+│       ├── ilustracoes/         # Artes e mockups do totem (WebP otimizado)
+│       ├── img/                 # Ícones e imagens gerais
+│       └── team/                # Fotos da equipe
 ├── src/
-│   ├── Components/             # Cada componente contém index.jsx + styles.css
+│   ├── Components/              # Componentes reutilizáveis (landing page + fluxo)
 │   │   ├── CarrinhoConfirmacao/
 │   │   ├── Feature/
 │   │   ├── Footer/
@@ -124,22 +131,34 @@ totsimple/
 │   │   ├── Teams/
 │   │   ├── TimeLine/
 │   │   └── TriagemFinalizada/
-│   ├── Pages/                  # Cada página contém index.jsx + styles.css
-│   │   ├── CarrinhoPagamento/
-│   │   ├── Contatos/
-│   │   ├── Infopagamento/
-│   │   ├── Infotriagem/
-│   │   ├── PagamentoFim/
-│   │   ├── PagamentoPix/
-│   │   ├── PagamentoScanner/
-│   │   ├── PamentoCartao/
-│   │   ├── Prototipo/
-│   │   ├── SobreNos/
-│   │   ├── Totem1triagem/
-│   │   ├── TotemModal/
-│   │   └── TotemPagamento/
-│   ├── assets/
-│   │   └── remeimg/
+│   ├── Pages/                   # Telas do totem, agrupadas por fluxo de negócio
+│   │   ├── Triagem/             # Leitura de receita e triagem do cliente
+│   │   │   ├── Dados/
+│   │   │   ├── Infotriagem/
+│   │   │   ├── TotemFotoReceita/
+│   │   │   ├── TotemModal/
+│   │   │   ├── TotemReceita/
+│   │   │   └── Triagem/
+│   │   ├── Pagamento/           # Carrinho e finalização da compra
+│   │   │   ├── CarrinhoPagamento/
+│   │   │   ├── Cartao/
+│   │   │   ├── Infopagamento/
+│   │   │   ├── PagamentoFim/
+│   │   │   ├── Pix/
+│   │   │   ├── Scanner/
+│   │   │   └── TotemPagamento/
+│   │   └── Institucional/       # Páginas institucionais
+│   │       ├── Contatos/
+│   │       ├── Prototipo/
+│   │       └── SobreNos/
+│   ├── context/                 # Estado global (Context API + useReducer)
+│   │   ├── CarrinhoContext.jsx
+│   │   └── carrinhoContextInstance.js
+│   ├── hooks/
+│   │   └── useCarrinho.js       # Hook de acesso ao carrinho (estado + ações)
+│   ├── data/                    # Dados estáticos (medicamentos, padrões)
+│   ├── utils/
+│   │   └── carrinho.js          # Funções puras de cálculo (subtotal, total)
 │   ├── App.css
 │   ├── App.jsx
 │   ├── index.css
